@@ -1,11 +1,14 @@
+$(document).ready(function(){
 //----define moment varibles used to show time----//
+function updateTime(){
 var date = moment().format('MMMM Do YYYY, h:mm:ss a');
-// var currentTime = moment().format('H');
-// console.log(currentTime);
 
-//-------append date----------//
-$("#currentDay").append(date);
-
+$("#currentDay").html(date);
+};
+updateTime();
+setInterval(function(){
+    updateTime();
+},1000);
 
 //---------background Updater------------------------//
 
@@ -34,26 +37,28 @@ function updatetime() {
 $(".rowBtn").on("click", function () {
     var timeOfday = $(this).parent().attr("id");
     var textContent = $("input").val().trim();
-
+    console.log();
     localStorage.setItem(timeOfday, textContent);
     console.log(timeOfday, textContent);
 });
 
 //-------Getting individual childern and setting to parent-----//
-$("#9am").children("input").val(localStorage.getItem("9am"));
 
-$("#10am").children("input").val(localStorage.getItem("10am"));
+$("#9am").children("input").val(localStorage.getItem("9am"))
 
-$("#11am").children("input").val(localStorage.getItem("11am"));
+$("#10am").children("input").val(localStorage.getItem("10am"))
 
-$("#12pm").children("input").val(localStorage.getItem("12pm"));
+$("#11am").children("input").val(localStorage.getItem("11am"))
 
-$("#1pm").children("input").val(localStorage.getItem("1pm"));
+$("#12pm").children("input").val(localStorage.getItem("12pm"))
 
-$("#2pm").children("input").val(localStorage.getItem("2pm"));
+$("#1pm").children("input").val(localStorage.getItem("1pm"))
 
-$("#3pm").children("input").val(localStorage.getItem("3pm"));
+$("#2pm").children("input").val(localStorage.getItem("2pm"))
 
-$("#4pm").children("input").val(localStorage.getItem("4pm"));
+$("#3pm").children("input").val(localStorage.getItem("3pm"))
 
-$("#5pm").children("input").val(localStorage.getItem("5pm"));
+$("#4pm").children("input").val(localStorage.getItem("4pm"))
+
+$("#5pm").children("input").val(localStorage.getItem("5pm"))
+});
