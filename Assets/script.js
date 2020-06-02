@@ -36,7 +36,7 @@ function updatetime() {
 //--onclick event to save user input to local storage---//
 $(".rowBtn").on("click", function () {
     var timeOfday = $(this).parent().attr("id");
-    var textContent = $("input").val().trim();
+    var textContent = $("input").prev("input").val().trim();
     console.log();
     localStorage.setItem(timeOfday, textContent);
     console.log(timeOfday, textContent);
